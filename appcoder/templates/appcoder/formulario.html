@@ -1,0 +1,22 @@
+{% extends "appcoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} FORMULARIO DE CARGA DE OFICINAS {% endblock %}
+
+{% block contenido_que_cambia%}
+    <h2>Formulario<h2>
+
+        <form action="{% url 'formulario' %}" method="POST"> {% csrf_token %}
+            
+            <input type="text" name="nombre" id ="nombre" placeholder="INSERTE NOMBRE">
+            <input type="text" name="ubicacion" id ="ubicacion" placeholder="INSERTE UBICACIÓN">
+            
+            <input type="submit" value="guardar">
+        
+        </form>
+    <h3>{{ mensaje }}    
+
+    {% endblock %}
+
+

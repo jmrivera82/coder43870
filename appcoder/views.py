@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import curso
+from .models import *
+from django.contrib import admin
+
 
 # Create your views here.
 
@@ -20,3 +22,31 @@ def listar_cursos(request):
         respuesta+=f"{curso.nombre} - {curso.comision} <br>"
     return HttpResponse(respuesta)
 
+def inicio(request):
+	return render(request,"appcoder/inicio.html")
+
+#def cursos(request):
+#    return render(request,"appcoder/cursos.html")
+
+def oficinas(request):
+    return render(request, "appcoder/oficinas.html")
+
+def personal(request):
+	return render(request,"appcoder/personal.html")
+
+def equipos(request):
+	return render(request,"appcoder/equipos.html")
+
+def trabajos(request):
+	return render(request,"appcoder/trabajos.html")
+
+def formulario(request):
+    if request.method=="POST":
+        nombre=request.POST["nombre"]
+        ubicacion=request.POST["ubicacion"]
+        oficina=oficinas(nombre=nombre,ubicacion=ubicacion)
+        oficina.save()
+        return render(request,"appcoder/formulario.html", {"Mensaje":"Oficina creada"})
+    
+    else:
+        return render(request,"appcoder/formulario.html")
