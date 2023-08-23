@@ -5,22 +5,12 @@
 {% block titulo %} ESTA ES LA PAGINA DEL PERSONAL {% endblock %}
 
 {% block contenido_que_cambia%}
-    <h1>ESTE ES EL CONTENIDO DE LA PAGINA DE PERSONAS<h1>
+    <h1>LISTA DE PERSONAL<h1>
 
-
-
-
-    <ul>
-        {% for personas in personal%}
-            <li>{{personas.nombre}} {{personas.apellido}}<li>
-        {%end for%}
-
-    </ul>
-
-
-
-
-
-
-
-    {% endblock %}
+        <form action="" method="post"> {% csrf_token %}
+            <table>
+                {{ form.as_table}}
+            </table>
+            <input type="submit", value="Ingresar">
+            
+{% endblock %}
