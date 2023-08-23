@@ -7,4 +7,20 @@
 {% block contenido_que_cambia%}
     <h1>ESTE ES EL CONTENIDO DE LA PAGINA DE PERSONAS<h1>
 
+
+
+
+    <ul>
+        {% for personas in personal%}
+            <li>{{personas.nombre}} {{personas.apellido}}<li>
+        {%end for%}
+
+    </ul>
+
+
+
+
+
+
+
     {% endblock %}
