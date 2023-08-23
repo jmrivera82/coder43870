@@ -32,7 +32,11 @@ def oficinas(request):
     return render(request, "appcoder/oficinas.html")
 
 def personal(request):
-	return render(request,"appcoder/personal.html")
+    if request.method=="POST":
+        pass
+    else:
+        personas=Personal.objects.all()
+        return render(request,"appcoder/personal.html", {"personal":personas})
 
 def equipos(request):
 	return render(request,"appcoder/equipos.html")
@@ -50,3 +54,6 @@ def formulario(request):
     
     else:
         return render(request,"appcoder/formulario.html")
+    
+    
+    
